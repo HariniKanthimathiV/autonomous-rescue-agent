@@ -1,23 +1,32 @@
-# Autonomous Rescue Agent — Environment Builder
+# Autonomous Rescue Agent
 
-A responsive browser-based mini-project simulation. No Python installation, terminal, server, or external dependency is required for this web version.
+A grid-based simulation of an autonomous agent navigating an environment to locate rescue targets and reach a designated exit.
 
-## Run locally
-Open `index.html` in a modern browser.
+## Overview
+
+This project simulates a rescue scenario in which an agent moves through an environment containing obstacles, hazards, and people who need to be rescued. The user can create a custom map and observe how the agent plans its route.
 
 ## Features
-- Create a custom grid environment (8×8, 10×10, 12×12, or 14×14)
-- Place and erase obstacles, hazards, rescue targets, agent start, and exit
-- A* pathfinding that avoids obstacles and hazards
-- Rescue people in nearest-first order, then navigate to the exit
-- Run, pause, single-step, reset, and load a sample environment
-- Live metrics and activity log
 
-## Publish using GitHub Pages (no terminal)
-1. Create a GitHub repository.
-2. Upload `index.html` and `README.md` to the repository root.
-3. Open **Settings → Pages**.
-4. Select **Deploy from a branch**, branch `main`, folder `/(root)`, then save.
-5. Wait for the published URL to appear on the Pages screen.
+* Custom grid environments with adjustable sizes
+* Placement of obstacles, hazards, rescue targets, start position, and exit
+* A* pathfinding for route planning
+* Rescue targets visited in nearest-first order
+* Controls to run, pause, reset, and step through the simulation
+* Mission statistics and activity log
 
-This is an educational simulation and is not intended for real-world rescue operations.
+## How it works
+
+The environment is represented as a grid. The agent uses the A* search algorithm to find a path to its next target while avoiding blocked cells. After visiting the rescue targets, it attempts to find a path to the exit.
+
+## Technologies Used
+
+* HTML
+* CSS
+* JavaScript
+* A* pathfinding algorithm
+
+## Running the project
+
+Open `index.html` in a modern web browser. No additional installation is required.
+
