@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autonomous Rescue Agent</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="hero">
+  <div><div class="eyebrow">AUTONOMOUS SYSTEMS · MINI PROJECT</div><h1>Autonomous Rescue Agent</h1><p>Build an environment, plan a route, and simulate a rescue mission.</p></div>
+  <div class="status"><span class="status-dot"></span><span id="statusBadge">READY</span></div>
+</header>
+<main>
+  <section class="toolbar panel">
+    <label>GRID SIZE<select id="size"><option value="8">8 × 8</option><option value="10" selected>10 × 10</option><option value="12">12 × 12</option><option value="14">14 × 14</option></select></label>
+    <label>EDITING TOOL<select id="tool"><option value="wall">Obstacle</option><option value="hazard">Hazard</option><option value="target">Rescue target</option><option value="start">Agent start</option><option value="exit">Exit</option><option value="erase">Erase cell</option></select></label>
+    <button id="sample" class="secondary">Load sample</button><button id="clear" class="secondary">Clear map</button>
+  </section>
+  <div class="layout">
+    <section class="panel environment">
+      <div class="section-head"><div><h2>Environment</h2><p>Choose a tool, then click a cell to edit the map.</p></div>
+        <div class="legend"><span><i class="swatch agent"></i>Agent</span><span><i class="swatch target"></i>Target</span><span><i class="swatch exit"></i>Exit</span><span><i class="swatch wall"></i>Obstacle</span><span><i class="swatch hazard"></i>Hazard</span></div>
+      </div>
+      <div id="grid" aria-label="Editable rescue grid"></div>
+      <div class="controls"><button id="run" class="primary">▶ Run mission</button><button id="step" class="secondary">Single step</button><button id="reset" class="secondary">Reset agent</button></div>
+      <p class="footnote">Python Flask calculates routes using the A* search algorithm.</p>
+    </section>
+    <aside class="sidebar">
+      <section class="panel"><h2>Mission status</h2><div class="stats">
+        <div><span>Rescued</span><strong id="rescued">0</strong></div><div><span>Steps</span><strong id="steps">0</strong></div>
+        <div><span>Hazards</span><strong id="hazards">0</strong></div><div><span>Route length</span><strong id="length">—</strong></div>
+      </div><div class="progress"><div id="progress"></div></div><p id="objective">Set targets and run the mission.</p></section>
+      <section class="panel"><h2>Activity log</h2><ul id="log"><li>Environment initialized.</li><li>Waiting for mission start.</li></ul></section>
+    </aside>
+  </div>
+  <footer>Python · Flask · A* pathfinding · HTML/CSS/JavaScript</footer>
+</main>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
